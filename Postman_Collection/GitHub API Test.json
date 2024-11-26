@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "4f867747-dbb1-4c99-b9d9-ce33ccb6abd1",
+		"name": "GitHub API Test",
+		"description": "Testing GitHub API endpoints for Data Source API Analyst role.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26308579"
+	},
+	"item": [
+		{
+			"name": "Requests",
+			"item": [
+				{
+					"name": "Search Repositories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "your_personal_token"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/search/repositories?q=language:Python&sort=stars&order=desc",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"search",
+								"repositories"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "language:Python"
+								},
+								{
+									"key": "sort",
+									"value": "stars"
+								},
+								{
+									"key": "order",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Commits",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "your_personal_token"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/repos/torvalds/linux/commits"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Contents",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "your_personal_token"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/repos/python/cpython/contents/LICENSE"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "base_url",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
